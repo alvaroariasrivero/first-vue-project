@@ -40,14 +40,11 @@
         <button v-on:click="send">Enviar</button>
       </form>
       <hr>
-      <p>Nombre: {{subtmiFname}}</p>
-      <p>Email: {{submitEmail}}</p>
-      <p>Teléfono: {{submitPhone}}</p>
-      <p>Consulta: {{submitMessage}}</p>
+      <div v-html="formHtml"></div>
       <span v-if="!tasks">Cargando...</span>
       <div v-for="task in tasks" :key="task.name">
         <h3>{{task.name}}</h3>
-        <p>{{task.play}}</p>
+        <p>{{task.when}}</p>
       </div>
     </main>
   </div>
@@ -64,25 +61,24 @@ export default{
       email: '',
       phone: '',
       message: '',
-      subtmiFname: '',
-      submitEmail: '',
-      submitPhone: '',
-      submitMessage: '',
       tasks: [
-        {name: 'Manuel', play: 'Guitar'},
-        {name: 'Álvaro', play: 'Bass'},
-        {name: 'Culebra', play: 'Drums'}
+        {name: 'Aprender Vue', when: 'Todos los días'},
+        {name: 'Dar estilos proyecto', when: 'Martes'},
+        {name: 'Lavarme los dientes', when: 'Después de cada comida'}
       ],
-      url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png'
+      url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png',
+      formHtml: ''
     }
   },
   methods:{
     send(e){
       e.preventDefault();
-      this.subtmiFname = this.fname;
-      this.submitEmail = this.email;
-      this.submitPhone = this.phone;
-      this.submitMessage = this.message;
+      this.formHtml = `
+        <p>Nombre: ${this.fname}</p>
+        <p>Email: ${this.email}</p>
+        <p>Teléfono: ${this.phone}</p>
+        <p>Consulta: ${this.message}</p>
+      `
     }
   }
 }
