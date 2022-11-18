@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+      <img alt="Vue logo" class="logo" v-bind:src="url" width="125" height="125" />
 
       <div class="wrapper">
         <h1>Let's go!</h1>
@@ -72,7 +72,8 @@ export default{
         {name: 'Manuel', play: 'Guitar'},
         {name: 'Álvaro', play: 'Bass'},
         {name: 'Culebra', play: 'Drums'}
-      ]
+      ],
+      url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png'
     }
   },
   methods:{
