@@ -44,6 +44,7 @@
       <p>Email: {{submitEmail}}</p>
       <p>Teléfono: {{submitPhone}}</p>
       <p>Consulta: {{submitMessage}}</p>
+      <span v-if="!tasks">Cargando...</span>
       <div v-for="task in tasks" :key="task.name">
         <h3>{{task.name}}</h3>
         <p>{{task.play}}</p>
