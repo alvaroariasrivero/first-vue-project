@@ -48,14 +48,16 @@
       </div>
     </main>
     <counter/>
+    <posts v-bind:posts="posts"/>
   </div>
 </template>
 
 <script>
 import Counter from './components/Counter.vue';
+import Posts from './components/Posts.vue';
 export default{
   name: 'App',
-  components: {Counter},
+  components: {Counter, Posts},
   data(){
 
     return{
@@ -71,7 +73,25 @@ export default{
         {name: 'Lavarme los dientes', when: 'Después de cada comida'}
       ],
       url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png',
-      formHtml: ''
+      formHtml: '',
+      posts: [
+        {
+          id: 1,
+          title: "Lorem"
+        },
+        {
+          id: 2,
+          title: "Ipsum"
+        },
+        {
+          id: 3,
+          title: "Veracitum"
+        },
+        {
+          id: 4,
+          title: "Programmanum"
+        }
+      ]
     }
   },
   methods:{
