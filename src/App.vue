@@ -49,7 +49,9 @@
     </main>
     <counter/>
     <posts v-bind:posts="posts"/>
-    <roman-counter />
+    <roman-counter>
+      <template>Equivalente romano: </template>
+    </roman-counter>
   </div>
 </template>
 

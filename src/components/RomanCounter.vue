@@ -1,7 +1,9 @@
 <template>
     <div>
         <input type="number" v-model="number">
-        <p>Equivalente romano: {{romanized}}</p>
+        <transition name="fade">
+            <p v-if="showMessage"><slot></slot>{{romanized}}</p>
+        </transition>
     </div>
 </template>
 
@@ -11,6 +13,11 @@ export default {
     data(){
         return{
             number: 0
+        }
+    },
+    watch:{
+        number(newValue){
+            console.log('valor: ', newValue);
         }
     },
     computed: {
@@ -26,7 +33,21 @@ export default {
                 }
             }
             return romanized || "Escribe un número";
+        },
+        showMessage(){
+            return this.number >= 0;
         }
     }
 }
 </script>
+
+<style scoped>
+    .fade-enter-active,
+    .fade-enter-leave{
+        transition: 0.5s;
+    }
+    .fade-enter,
+    .fade-leave-to{
+        opacity: 0;
+    }
+</style>
