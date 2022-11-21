@@ -47,13 +47,17 @@
         <p>{{task.when}}</p>
       </div>
     </main>
+    <counter/>
   </div>
 </template>
 
 <script>
+import Counter from './components/Counter.vue';
 export default{
   name: 'App',
+  components: {Counter},
   data(){
+
     return{
       items: 0,
       picked: '',
