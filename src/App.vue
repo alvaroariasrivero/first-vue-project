@@ -52,6 +52,7 @@
     <roman-counter>
       <template>Equivalente romano: </template>
     </roman-counter>
+    <users-list />
   </div>
 </template>
 
@@ -59,9 +60,10 @@
 import Counter from './components/Counter.vue';
 import Posts from './components/Posts.vue';
 import RomanCounter from './components/RomanCounter.vue';
+import UsersList from './components/UsersList.vue';
 export default{
   name: 'App',
-  components: {Counter, Posts, RomanCounter},
+  components: {Counter, Posts, RomanCounter, UsersList},
   data(){
 
     return{

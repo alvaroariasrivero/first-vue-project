@@ -44,7 +44,7 @@ export default {
 <style scoped>
     .fade-enter-active,
     .fade-enter-leave{
-        transition: 0.5s;
+        transition: 1s;
     }
     .fade-enter,
     .fade-leave-to{
