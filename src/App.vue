@@ -49,15 +49,17 @@
     </main>
     <counter/>
     <posts v-bind:posts="posts"/>
+    <roman-counter />
   </div>
 </template>
 
 <script>
 import Counter from './components/Counter.vue';
 import Posts from './components/Posts.vue';
+import RomanCounter from './components/RomanCounter.vue';
 export default{
   name: 'App',
-  components: {Counter, Posts},
+  components: {Counter, Posts, RomanCounter},
   data(){
 
     return{
