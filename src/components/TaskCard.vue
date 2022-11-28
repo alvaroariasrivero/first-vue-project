@@ -14,7 +14,7 @@
 <script>
 export default {
     name: 'TaskCard',
-    props:["tareas", 'deleteTask']
+    props:["tareas"]
 }
 </script>
 
