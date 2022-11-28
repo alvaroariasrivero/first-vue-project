@@ -53,6 +53,15 @@
       <template>Equivalente romano: </template>
     </roman-counter>
     <users-list />
+    <form>
+      <label>Tarea</label>
+      <input type="text" v-model="titulotarea">
+      <label>Asignada a:</label>
+      <input type="text" v-model="asignada">
+      <textarea cols="30" rows="10" v-model="descripcion"></textarea>
+      <button v-on:click="saveTask">Guardar</button>
+    </form>
+    <task-card v-bind:tareas="tareas"/>
   </div>
 </template>
 
@@ -60,10 +69,11 @@
 import Counter from './components/Counter.vue';
 import Posts from './components/Posts.vue';
 import RomanCounter from './components/RomanCounter.vue';
+import TaskCard from './components/TaskCard.vue';
 import UsersList from './components/UsersList.vue';
 export default{
   name: 'App',
-  components: {Counter, Posts, RomanCounter, UsersList},
+  components: {Counter, Posts, RomanCounter, UsersList, TaskCard},
   data(){
 
     return{
@@ -73,6 +83,11 @@ export default{
       email: '',
       phone: '',
       message: '',
+      titulotarea: '',
+      asignada: '',
+      descripcion: '',
+      tareasid: 0,
+      tareas: [],
       tasks: [
         {name: 'Aprender Vue', when: 'Todos los días'},
         {name: 'Dar estilos proyecto', when: 'Martes'},
@@ -109,6 +124,11 @@ export default{
         <p>Teléfono: ${this.phone}</p>
         <p>Consulta: ${this.message}</p>
       `
+    },
+    saveTask(e){
+      e.preventDefault();
+      this.tareas = [...this.tareas, {'Tarea': this.titulotarea, 'Asignada': this.asignada, 'Descripcion': this.descripcion, 'id': this.tareasid++, 'Done': false}];
+      console.log(this.tareas);
     }
   }
 }
